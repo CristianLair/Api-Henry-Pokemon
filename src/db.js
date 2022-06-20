@@ -8,28 +8,20 @@ const {
 
 let sequelize =
   process.env.NODE_ENV === "production"
-    ? new Sequelize({
-        database: DB_NAME,
-        dialect: "postgres",
-        host: DB_HOST,
-        port: 5432,
-        username: DB_USER,
-        password: DB_PASSWORD,
-        pool: {
-          max: 3,
-          min: 1,
-          idle: 10000,
-        },
-        dialectOptions: {
-          ssl: {
-            require: true,
-            // Ref.: https://github.com/brianc/node-postgres/issues/2009
-            rejectUnauthorized: false,
-          },
-          keepAlive: true,
-        },
-        ssl: true,
-      })
+    ?new Sequelize({
+      database: "d4ofj3jhqk3j5a",
+      username: "ofirnsvzpmnlpn",
+      password: "cfd7db3d8307b777d5cf89566c16c86f20ff2226bc1e3609797c32e00f029e3f",
+      host: "ec2-52-73-184-24.compute-1.amazonaws.com",
+      port: 5432,
+      dialect: "postgres",
+      dialectOptions: {
+        ssl: {
+          require: true, // This will help you. But you will see nwe error
+          rejectUnauthorized: false // This line will fix new error
+        }
+      },
+    })
     : new Sequelize(
         `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/pokemon`,
         { logging: false, native: false }
