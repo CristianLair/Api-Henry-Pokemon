@@ -20,7 +20,8 @@ server.use((req, res, next) => {
    "https://poke-api-henry.vercel.app",
    "poke-api-henry-rmpe0oxjw-cristianlair.vercel.app",
    "https://api-pokemon-deploy.herokuapp.com/types",
-   "https://api-pokemon-deploy.herokuapp.com/pokemons"
+   "https://api-pokemon-deploy.herokuapp.com/pokemons",
+   "https://api-pokemon-deploy.herokuapp.com"
     
   ];
   const origin = req.headers.origin || "";
