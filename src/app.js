@@ -10,11 +10,21 @@ const server = express();
 
 server.name = 'API';
 
- server.use(function(req, res, next) {
-  let allowedOrigins = ['https://poke-api-henry.vercel.app', 'http://localhost:3000', 'https://api-pokemon-deploy.herokuapp.com/pokemons'];
-  let origin = req.headers.origin;
-  if(allowedOrigins.indexOf(origin) > -1){
-       res.setHeader('Access-Control-Allow-Origin', origin);
+server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+server.use(bodyParser.json({ limit: '50mb' }));
+server.use(cookieParser());
+server.use(morgan('dev'));
+server.use((req, res, next) => {
+  const allowedOrigins = [
+    "http://localhost:3000",
+   "https://proyecto-countries-henry.vercel.app",
+   "https://proyecto-countries-henry-8zghl1502-cristianlair.vercel.app"
+    
+  ];
+  const origin = req.headers.origin || "";
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
   }
   res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
