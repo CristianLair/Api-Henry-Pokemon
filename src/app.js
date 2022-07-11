@@ -18,7 +18,9 @@ server.use((req, res, next) => {
   const allowedOrigins = [
     "http://localhost:3000",
    "https://proyecto-countries-henry.vercel.app",
-   "https://proyecto-countries-henry-8zghl1502-cristianlair.vercel.app"
+   "https://proyecto-countries-henry-8zghl1502-cristianlair.vercel.app",
+   "https://api-pokemon-deploy.herokuapp.com/types",
+   "https://api-pokemon-deploy.herokuapp.com/pokemons"
     
   ];
   const origin = req.headers.origin || "";
