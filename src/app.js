@@ -13,7 +13,7 @@ server.name = 'API';
 server.use(
   cors({
     credentials: true,
-    origin:  ['https://poke-api-henry.vercel.app', 'https://api-pokemon-deploy.herokuapp.com/types', 'http://localhost:3000', 'https://api-pokemon-deploy.herokuapp.com/pokemons', 'https://git.heroku.com/henry-proyecto-nft.git'],
+    origin:  ['*'],
     methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"],
     allowedHeaders: [
       "Content-Type",
