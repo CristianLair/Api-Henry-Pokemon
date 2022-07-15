@@ -9,21 +9,22 @@ const cors = require('cors')
 const server = express();
 
 server.name = 'API';
-
-server.use(
-  cors({
-    credentials: true,
-    origin:  ['*'],
-    methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Access-Control-Allow-Origin",
-    ],
-  })
-
-)
 server.use(express.json())
+
+server.use(cors());
+server.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
+
+// app.use('/')
+
+// middleware
 server.use('/', routes);
 
 // Error catching endware.
