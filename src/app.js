@@ -10,8 +10,8 @@ const server = express();
 
 server.name = 'API';
 
-app.use(cors());
-app.use((req, res, next) => {
+server.use(cors());
+server.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header(
     "Access-Control-Allow-Headers",
@@ -20,7 +20,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
-app.use(express.json())
+server.use(express.json())
 server.use('/', routes);
 
 // Error catching endware.
