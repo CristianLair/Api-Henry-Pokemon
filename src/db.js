@@ -9,10 +9,10 @@ const {
 let sequelize =
   process.env.NODE_ENV === "production"
     ?new Sequelize({
-      database: "d4ofj3jhqk3j5a",
-      username: "ofirnsvzpmnlpn",
-      password: "cfd7db3d8307b777d5cf89566c16c86f20ff2226bc1e3609797c32e00f029e3f",
-      host: "ec2-52-73-184-24.compute-1.amazonaws.com",
+      database: "d7o5vne4ve2bab",
+      username: "orszzxtjbkykqg",
+      password: "68b04bd22f58e2869787ebc56deba6276680d75f2e62089d3b8f3df88b6da315",
+      host: "ec2-52-205-61-230.compute-1.amazonaws.com",
       port: 5432,
       dialect: "postgres",
       dialectOptions: {
